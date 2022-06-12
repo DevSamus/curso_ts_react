@@ -2,15 +2,16 @@ import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import styles from "./TaskForm.module.css";
 import { ITask } from '../interfaces/ITask';
 
-type Props = {
+interface Props {
   btnText: string;
 	taskList:ITask[]
 	setTaskList?:React.Dispatch<React.SetStateAction<ITask[]>>
 	task?:ITask | null
+	handleUpdate?(id: number, title: string, difficulty: number):void
 };
 
-const TaskForm = ({btnText, taskList, setTaskList, task }: Props) => {
-  const [id, setId] = useState<number>();
+const TaskForm = ({btnText, taskList, setTaskList, task, handleUpdate}: Props) => {
+  const [id, setId] = useState<number>(0);
   const [title, setTitle] = useState<string>("");
   const [difficulty, setDifficulty] = useState<number>(0);
 //# carrega as informações das task selecionada para a edição!
@@ -23,14 +24,26 @@ const TaskForm = ({btnText, taskList, setTaskList, task }: Props) => {
 
 	},[task])
 
-  const addTaskHandler = (e:FormEvent<HTMLFormElement>) => {
+ const addTaskHandler = (e:FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		const id = Math.floor(Math.random()*1000);
-    const newTask:ITask ={id, title, difficulty}
-		setTaskList!([...taskList,newTask]); //# ! para objetos que podem ser nulos argumento opcional
-		setTitle("")
-		setDifficulty(0);
-		console.log(taskList);
+
+if(handleUpdate) {
+	console.log("Atualizando!!");
+	handleUpdate(id,title, difficulty)
+	return
+} 
+ 
+{	const id = Math.floor(Math.random()*1000);
+	const newTask:ITask ={id, title, difficulty}
+	setTaskList!([...taskList,newTask]); //# ! para objetos que podem ser nulos argumento opcional
+	setTitle("")
+	setDifficulty(0);
+	console.log(newTask);
+}
+
+
+	
+		
 		
 	};
 

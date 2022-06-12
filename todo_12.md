@@ -61,3 +61,9 @@ https://www.udemy.com/course/typescript-do-basico-ao-avancado-c-react-express/le
 
 164. Preenchendo modal com dados
   -> 	https://www.udemy.com/course/typescript-do-basico-ao-avancado-c-react-express/learn/lecture/30227106#overview
+
+165. Finalizando atualização de tarefas
+ -> https://www.udemy.com/course/typescript-do-basico-ao-avancado-c-react-express/learn/lecture/30227110#overview
+
+166. Conclusão da seção	
+ -> https://www.udemy.com/course/typescript-do-basico-ao-avancado-c-react-express/learn/lecture/30227116#overview

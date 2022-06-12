@@ -13,7 +13,7 @@ const TaskForm = ({btnText, taskList, setTaskList, task }: Props) => {
   const [id, setId] = useState<number>();
   const [title, setTitle] = useState<string>("");
   const [difficulty, setDifficulty] = useState<number>(0);
-
+//# carrega as informações das task selecionada para a edição!
 	useEffect (()=> {
 		if(task) {
 			setId(task.id)
